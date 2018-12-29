@@ -6,6 +6,7 @@ def consolidate_cart(cart)
   cart.each do |grocery|
     grocery.each do |name, price|
       item[name] = price
+      item[name][:count] = 1
       binding.pry
     end
   end
