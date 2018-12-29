@@ -18,11 +18,12 @@ end
 
 def apply_coupons(cart, coupons)
   # code here
+  i = cart
   cart.each do |cart_item|
     cart_item.each do |cart_name, cart_data|
       coupons.each do |coupons_name, coupons_data|
         if cart_name == coupons_data
-          cart["cart_name W/COUPON"] = {}
+          i["cart_name W/COUPON"] = {}
         end
         binding.pry
       end#coupons
