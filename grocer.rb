@@ -5,7 +5,9 @@ def consolidate_cart(cart)
   item = {}
   cart.each do |grocery|
     grocery.each do |name, price|
+      price.each do |item|
       binding.pry
+    end
     end
   end
 end
