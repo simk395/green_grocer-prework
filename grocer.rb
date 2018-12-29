@@ -30,11 +30,6 @@ def apply_coupons(cart, coupons)
   end#cart
 end
 
--subtract
--change price
--append clearance
--add count to avocado
-
 def apply_clearance(cart)
   # code here
 end
