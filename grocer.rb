@@ -5,9 +5,11 @@ def consolidate_cart(cart)
   item = {}
   cart.each do |grocery|
     grocery.each do |name, price|
-      item[name] = price
-      item[name][:count] = 1
-      binding.pry
+      if item.has_key?(name) != true
+        item[name] = price
+        item[name][:count] = 1
+      elsif item.has_key?(name) == true
+        item[name][:count] += 1
     end
   end
 end
