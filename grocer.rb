@@ -12,6 +12,7 @@ def consolidate_cart(cart)
         item[name][:count] += 1
     end
   end
+  item
 end
 
 def apply_coupons(cart, coupons)
@@ -38,5 +39,3 @@ list = [
   {"BEETS" => {:price => 2.50, :clearance => false}},
   {"SOY MILK" => {:price => 4.50, :clearance => true}}
 ]
-
-consolidate_cart(list)
