@@ -10,6 +10,7 @@ def consolidate_cart(cart)
         item[name][:count] = 1
       elsif item.has_key?(name) == true
         item[name][:count] += 1
+      end
     end
   end
   item
