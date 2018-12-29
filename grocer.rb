@@ -45,10 +45,5 @@ a = {
 
 b = {:item => "AVOCADO", :num => 2, :cost => 5.0}
 
-{
-  "AVOCADO" => {:price => 3.0, :clearance => true, :count => 1},
-  "KALE"    => {:price => 3.0, :clearance => false, :count => 1},
-  "AVOCADO W/COUPON" => {:price => 5.0, :clearance => true, :count => 1},
-}
 
 apply_coupons(a,b)
