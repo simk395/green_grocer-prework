@@ -3,7 +3,7 @@ require "pry"
 def consolidate_cart(cart)
   # code here
   item = {}
-  cart.each do |grocery|  
+  cart.each do |grocery, data|
       binding.pry
   end
 end
