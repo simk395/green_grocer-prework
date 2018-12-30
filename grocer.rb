@@ -23,7 +23,7 @@ def apply_coupons(cart, coupons)
     coupons.each do |coupon_item|
       if cart_item == coupon_item[:item] && coupon_item[:num] < cart_data[:count]
         copy[cart_item][:count] = cart_data[:count] - coupon_item[:num]
-        copy ["hello"] = "hello"
+        cart ["hello"] = "hello"
         binding.pry
       end
     end
