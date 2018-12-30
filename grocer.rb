@@ -25,11 +25,10 @@ def apply_coupons(cart, coupons)
       cart[coupon_item] = cart[discount[:item]]
       cart[coupon_item][:price] = discount[:cost]
       cart[coupon_item][:count] = 1
+      binding.pry
       cart[discount[:item]][:count] = (cart[discount[:item]][:count] - discount[:num])
     end
-    binding.pry
   end
-  binding.pry
 end
 
 a = {
