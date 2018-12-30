@@ -19,8 +19,10 @@ end
 def apply_coupons(cart, coupons)
   # code here
   copy = cart.clone
-  cart.each do |item|
-    binding.pry
+  cart.each do |cart_item, cart_data|
+    coupon.each do |coupon_item, coupon_data|
+      binding.pry
+    end
   end
 end
 
