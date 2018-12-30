@@ -38,14 +38,6 @@ def apply_coupons(cart, coupons)
   cart
 end
 
-a = {
-  "AVOCADO" => {:price => 3.0, :clearance => true, :count => 6},
-  "KALE"    => {:price => 3.0, :clearance => false, :count => 1}
-}
-b = [{:item => "AVOCADO", :num => 2, :cost => 5.0},
-{:item => "AVOCADO", :num => 2, :cost => 5.0}]
-
-apply_coupons(a,b)
 def apply_clearance(cart)
   # code here
   cart.each do |item, data|
@@ -53,6 +45,7 @@ def apply_clearance(cart)
       data[:price] = (data[:price]*0.8).round(1)
     end
   end
+  cart
 end
 
 def checkout(cart, coupons)
@@ -60,5 +53,5 @@ def checkout(cart, coupons)
   cart = consolidate_cart(cart)
   cart = apply_coupons(cart, coupons)
   cart = apply_clearance(cart)
-  cart
+
 end
