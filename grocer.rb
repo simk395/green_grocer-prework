@@ -22,13 +22,13 @@ def apply_coupons(cart, coupons)
   coupons.each do |discount|
     coupon_item = "#{discount[:item]} W/COUPON"
     if grocery.include?(discount[:item]) && discount[:num] < cart[discount[:item]][:count]
-      cart[coupon_item][:clearance] = cart[discount[:item]][:clearance] 
+      cart[coupon_item][:clearance] = cart[discount[:item]][:clearance]
       cart[coupon_item][:price] = discount[:cost]
       cart[coupon_item][:count] = 1
-      binding.pry
       cart[discount[:item]][:count] = (cart[discount[:item]][:count] - discount[:num])
     end
   end
+  binding.pry
 end
 
 a = {
