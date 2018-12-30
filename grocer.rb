@@ -21,7 +21,8 @@ def apply_coupons(cart, coupons)
   copy = cart.clone
   cart.each do |cart_item, cart_data|
     coupons.each do |coupon_item|
-      if cart_item == coupon_item[:item]
+      if cart_item == coupon_item[:item] && coupon_item[:num] < cart_data[:count]
+        cart_data[:count] = cart_data[:count] - coupon_item[:num]
         binding.pry
       end
     end
