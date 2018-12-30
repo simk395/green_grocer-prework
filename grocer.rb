@@ -60,6 +60,8 @@ def checkout(cart, coupons)
   if total > 100
     cart.each do |item, data|
       data[:price] = (data[:price]*0.9).round(1)
+    else
+      return total
     end
   end
 end
