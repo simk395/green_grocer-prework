@@ -18,16 +18,17 @@ end
 
 def apply_coupons(cart, coupons)
   # code here
-  grocery = cart.keys
+  grocery, coupon_item = cart.keys, ""
   coupons.each do |discount|
+    coupon_item = "#{discount[:item]} W/COUPON"
     if grocery.include?(discount[:item]) && discount[:num] < cart[discount[:item]][:count]
-      cart["#{discount[:item]} W/COUPON"] = cart[discount[:item]]
-      cart["#{discount[:item]} W/COUPON"][:price] = discount[:cost]
-      cart["#{discount[:item]} W/COUPON"][:count] = 1
+      cart[coupon_item] = cart[discount[:item]]
+      cart[coupon_item][:price] = discount[:cost]
+      cart[coupon_item][:count] = 1
       cart[discount[:item]][:count] = (cart[discount[:item]][:count] - discount[:num])
     end
   end
-  
+
 end
 
 a = {
