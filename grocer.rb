@@ -21,7 +21,6 @@ def apply_coupons(cart, coupons)
   grocery, coupon_item = cart.keys, ""
   coupons.each do |discount|
     coupon_item = "#{discount[:item]} W/COUPON"
-    binding.pry
     if grocery.include?(discount[:item]) && discount[:num] < cart[discount[:item]][:count]
       cart[coupon_item] = cart[discount[:item]]
       cart[coupon_item][:price] = discount[:cost]
@@ -29,7 +28,7 @@ def apply_coupons(cart, coupons)
       cart[discount[:item]][:count] = (cart[discount[:item]][:count] - discount[:num])
     end
   end
-  
+  binding.pry
 end
 
 a = {
