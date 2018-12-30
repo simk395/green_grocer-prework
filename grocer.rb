@@ -20,8 +20,10 @@ def apply_coupons(cart, coupons)
   # code here
   copy = cart.clone
   cart.each do |cart_item, cart_data|
-    coupons.each do |coupon_item, coupon_data|
-      binding.pry
+    coupons.each do |coupon_item|
+      if cart_item == coupon_item[:item]
+        binding.pry
+      end
     end
   end
 end
