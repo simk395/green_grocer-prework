@@ -23,7 +23,6 @@ def apply_coupons(cart, coupons)
       coupons.each do |value|
         if value[:item] == name
           cart[:hello] = "hello"
-          binding.pry
         end
       end
     end
