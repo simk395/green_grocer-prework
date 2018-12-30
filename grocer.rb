@@ -42,6 +42,7 @@ b = [
 ]
 
 apply_coupons (a,b)
+
 def apply_clearance(cart)
   # code here
   cart.each do |item|
