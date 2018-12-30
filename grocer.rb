@@ -18,7 +18,16 @@ end
 
 def apply_coupons(cart, coupons)
   # code here
-  items = cart.keys
+  grocery = cart.keys
+  coupons.each do |array|
+    if grocery.include?(items[:item])
+      cart["#{array[:item]} W/COUPON"] = cart[array[:item]]
+      cart["#{array[:item]} W/COUPON"][:price] = array[:cost]
+      cart["#{array[:item]} W/COUPON"][:count] = 1
+      cart[array[:item]][:count] = (cart[array[:item]][:count] - array[:num])
+    end
+  end
+  cart
 end
 
 a = {
@@ -31,8 +40,6 @@ b = [
   {:item => "BEER", :num => 2, :cost => 20.00},
   {:item => "CHEESE", :num => 3, :cost => 15.00}
 ]
-
-apply_coupons(a,b)
 
 def apply_clearance(cart)
   # code here
@@ -48,4 +55,17 @@ end
 
 def checkout(cart, coupons)
   # code here
+  cart = consolidate_cart(cart)
+  cart = apply_coupons(cart, coupons)
+  cart = apply_clearance(cart)
+  i = cart.keys
+  j = 0
+  i.each do |item|
+    j += cart[item][:price]
+  end
+  if j > 100
+    i.each do |item|
+      cart[item][:price] = (cart[item][:price] * 0.9)
+    end
+  end
 end
