@@ -24,6 +24,7 @@ def apply_coupons(cart, coupons)
         if value[:item] == name
           cart[:hello] = "hello"
         end
+        binding.pry
       end
     end
   end
@@ -40,6 +41,7 @@ b = [
   {:item => "CHEESE", :num => 3, :cost => 15.00}
 ]
 
+apply_coupons (a,b)
 def apply_clearance(cart)
   # code here
   cart.each do |item|
