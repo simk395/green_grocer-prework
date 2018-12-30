@@ -50,23 +50,11 @@ def apply_clearance(cart)
       end
     end
   end
-  cart
+  binding.pry
 end
+
+apply_clearance(a)
 
 def checkout(cart, coupons)
   # code here
-  cart = consolidate_cart(cart)
-  cart = apply_coupons(cart, coupons)
-  cart = apply_clearance(cart)
-  i = cart.keys
-  j = 0
-  i.each do |item|
-    j += cart[item][:price]
-  end
-  if j > 100
-    i.each do |item|
-      cart[item][:price] = (cart[item][:price] * 0.9)
-    end
-  end
-  cart
 end
