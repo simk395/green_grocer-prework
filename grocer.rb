@@ -43,10 +43,8 @@ b = [
 
 def apply_clearance(cart)
   # code here
-  cart.each do |item|
-    item.each do |name, data|
+  cart.each do |item, data|
       binding.pry
-    end
   end
 
 end
