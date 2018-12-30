@@ -41,7 +41,7 @@ b = [
   {:item => "CHEESE", :num => 3, :cost => 15.00}
 ]
 
-apply_coupons (a,b)
+apply_coupons(a,b)
 
 def apply_clearance(cart)
   # code here
