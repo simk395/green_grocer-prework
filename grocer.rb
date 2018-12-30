@@ -48,7 +48,6 @@ def apply_clearance(cart)
       data[:price] = (data[:price]*0.8).round(2)
     end
   end
-  binding.pry
 end
 
 apply_clearance(a)
