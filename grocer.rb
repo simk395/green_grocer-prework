@@ -28,9 +28,16 @@ def apply_coupons(cart, coupons)
       cart[discount[:item]][:count] = (cart[discount[:item]][:count] - discount[:num])
     end
   end
-  cart
+  binding.pry
 end
 
+a = {
+  "AVOCADO" => {:price => 3.0, :clearance => true, :count => 3},
+  "KALE"    => {:price => 3.0, :clearance => false, :count => 1}
+}
+b = [{:item => "AVOCADO", :num => 2, :cost => 5.0}]
+
+apply_coupons(a,b)
 def apply_clearance(cart)
   # code here
   cart.each do |item, data|
