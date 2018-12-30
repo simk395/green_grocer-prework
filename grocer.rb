@@ -21,7 +21,7 @@ def apply_coupons(cart, coupons)
   grocery, coupon_item = cart.keys, ""
   coupons.each do |discount|
     coupon_item = "#{discount[:item]} W/COUPON"
-    if cart.has_key?(coupon_item) == true && (cart[discount[:item]][:count] - discount[:num]) >= 0
+    if cart.has_key?(coupon_item) && (cart[discount[:item]][:count] - discount[:num]) >= 0
       cart[coupon_item][:price] += discount[:cost]
       cart[coupon_item][:count] += 1
       cart[discount[:item]][:count] = (cart[discount[:item]][:count] - discount[:num])
@@ -40,10 +40,11 @@ def apply_coupons(cart, coupons)
 end
 
 a = {
-  "AVOCADO" => {:price => 3.0, :clearance => true, :count => 3},
+  "AVOCADO" => {:price => 3.0, :clearance => true, :count => 6},
   "KALE"    => {:price => 3.0, :clearance => false, :count => 1}
 }
-b = [{:item => "AVOCADO", :num => 2, :cost => 5.0}]
+b = [{:item => "AVOCADO", :num => 2, :cost => 5.0},
+{:item => "AVOCADO", :num => 2, :cost => 5.0}]
 
 apply_coupons(a,b)
 def apply_clearance(cart)
