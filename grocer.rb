@@ -25,15 +25,15 @@ def apply_coupons(cart, coupons)
       cart[coupon_item][:price] += discount[:cost]
       cart[coupon_item][:count] += 1
       cart[discount[:item]][:count] = (cart[discount[:item]][:count] - discount[:num])
+      if cart[discount[:item]][:count] == 0
+        cart.delete(discount[:item])
+      end
     elsif grocery.include?(discount[:item]) && (cart[discount[:item]][:count] - discount[:num]) >= 0 && cart.has_key?(coupon_item) == false
       cart[coupon_item] = {}
       cart[coupon_item][:price] = discount[:cost]
       cart[coupon_item][:clearance] = cart[discount[:item]][:clearance]
       cart[coupon_item][:count] = 1
       cart[discount[:item]][:count] = (cart[discount[:item]][:count] - discount[:num])
-    end
-    if cart[discount[:item]][:count] == 0
-      cart.delete(discount[:item])
     end
   end
   cart
