@@ -18,16 +18,7 @@ end
 
 def apply_coupons(cart, coupons)
   # code here
-  cart.each do |item|
-    item.each do |name, data|
-      coupons.each do |value|
-        if value[:item] == name
-          cart[:hello] = "hello"
-        end
-        binding.pry
-      end
-    end
-  end
+  items = cart.keys
 end
 
 a = {
