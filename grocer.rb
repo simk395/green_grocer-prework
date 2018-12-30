@@ -68,4 +68,5 @@ def checkout(cart, coupons)
       cart[item][:price] = (cart[item][:price] * 0.9)
     end
   end
+  cart
 end
