@@ -18,18 +18,23 @@ end
 
 def apply_coupons(cart, coupons)
   # code here
-  i = cart
-  cart.each do |cart_item|
-    cart_item.each do |cart_name, cart_data|
-      coupons.each do |coupons_name, coupons_data|
-        if cart_name == coupons_data
-          i["#{cart_name} W/COUPON"] = {}
+  cart.each do |item|
+    item.each do |name, data|
+      coupons.each do |value|
+        if value[:item] == name
+          cart[:hello] = "hello"
+          binding.pry
         end
-        binding.pry
-      end#coupons
-    end#item
-  end#cart
+      end
+    end
+  end
 end
+
+[
+  {:item => "AVOCADO", :num => 2, :cost => 5.00},
+  {:item => "BEER", :num => 2, :cost => 20.00},
+  {:item => "CHEESE", :num => 3, :cost => 15.00}
+]
 
 def apply_clearance(cart)
   # code here
@@ -46,13 +51,3 @@ end
 def checkout(cart, coupons)
   # code here
 end
-
-a = {
-  "AVOCADO" => {:price => 3.0, :clearance => true, :count => 3},
-  "KALE"    => {:price => 3.0, :clearance => false, :count => 1}
-}
-
-b = {:item => "AVOCADO", :num => 2, :cost => 5.0}
-
-
-apply_coupons(a,b)
