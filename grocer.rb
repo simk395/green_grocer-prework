@@ -19,15 +19,15 @@ end
 def apply_coupons(cart, coupons)
   # code here
   grocery = cart.keys
-  coupons.each do |array|
-    if grocery.include?(items[:item])
-      cart["#{array[:item]} W/COUPON"] = cart[array[:item]]
-      cart["#{array[:item]} W/COUPON"][:price] = array[:cost]
-      cart["#{array[:item]} W/COUPON"][:count] = 1
-      cart[array[:item]][:count] = (cart[array[:item]][:count] - array[:num])
+  coupons.each do |discount|
+    if grocery.include?(discount[:item]) && discount[:num] < cart[discount[:item]][:count]
+      cart["#{discount[:item]} W/COUPON"] = cart[discount[:item]]
+      cart["#{discount[:item]} W/COUPON"][:price] = discount[:cost]
+      cart["#{discount[:item]} W/COUPON"][:count] = 1
+      cart[discount[:item]][:count] = (cart[discount[:item]][:count] - discount[:num])
     end
   end
-  cart
+  
 end
 
 a = {
@@ -41,6 +41,8 @@ b = [
   {:item => "CHEESE", :num => 3, :cost => 15.00}
 ]
 
+
+
 def apply_clearance(cart)
   # code here
   cart.each do |item, data|
@@ -49,8 +51,6 @@ def apply_clearance(cart)
     end
   end
 end
-
-apply_clearance(a)
 
 def checkout(cart, coupons)
   # code here
